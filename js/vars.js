@@ -9,8 +9,8 @@ user.typeWeb = 'app';
 user.terminos = 'No';
 user.img = ['','','',''];
 var nombreApp = 'ReyPlata';
-var urlSendForm = "http://e-short.com/apps/reyplata/php/registra_formulario.php";
-var urlUploadPhoto = "http://e-short.com/apps/reyplata/php/uploadPhoto.php";
+var urlSendForm = "http://reyplata.com/apps/php/registra_formulario.php";
+var urlUploadPhoto = "http://reyplata.com/apps/php/uploadPhoto.php";
 var urlinAppBrowser = 'http://reyplata.com';
 var pictureSource;   // picture source
 var destinationType; // sets the format of returned value
