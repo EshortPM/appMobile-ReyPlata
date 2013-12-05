@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<meta name="format-detection" content="telephone=no" /><!-- iOS desactiva la deteccion automatica de posibles numeros de telefono en un documento web-->
+	<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, target-densitydpi=device-dpi" /><!-- Configura la visualizacion de la pagina -->
+
+	<title>ReyPlata</title>
+	
+	<link rel="stylesheet" type="text/css" href="css/home.css" />
+	<link rel="stylesheet" type="text/css" media="all and (min-width:480px) and (orientation: portrait)" href="css/screen_adapt.css" />
+	<link rel="stylesheet" type="text/css" media="all and (min-width:800px) and (orientation: landscape)" href="css/screen_adapt.css" />
+	
+	<script type="text/javascript" src="phonegap.js"></script>
+	
+	<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+	<script type="text/javascript" src="js/jquery.touchSwipe.min.js"></script>
+	<script type="text/javascript" src="js/uaParser.min.js"></script>
+	<script type="text/javascript" src="js/util.js"></script>
+	<script type="text/javascript" src="js/vars.js"></script>
+	<script type="text/javascript" src="js/functionsHome.js"></script>
+	
+</head>
+<body>
+	
+<div id="fondo">
+	
+	<div class="cabecera">
+		<div id="banner"><img class="imageWidth" src="img/cabecera.jpg" /></div>
+	</div>
+	
+	<div class="cuerpo">
+
+		<div class="section">
+			<div class="tarjeta borderRadius5">
+				<div class="formLine">
+					<div class="inputBackground input90 borderRadius5" id="bg_nombre">
+						<div class="inputBackground_img ico_nombre"></div>
+						<div class="inputBackground_text">
+							<input type="text" class='input_' id="nombre" placeholder="*Nombre y Apellidos">
+						</div>
+					</div>
+				</div>
+				<div class="formLine">						
+					<div class="inputBackground input50 borderRadius5" id="bg_telefono">
+						<div class="inputBackground_img ico_telefono"></div>
+						<div class="inputBackground_text inputTel">
+							<input type="number" class='input_' id="telefono" placeholder="*Teléfono">
+						</div>
+					</div>						
+					<div class="inputBackground input39 borderRadius5" id="bg_cp">
+						<div class="inputBackground_img ico_cp"></div>
+						<div class="inputBackground_text inputCP">
+							<input type="number" class='input_' id="cp" placeholder="*C.P.">
+						</div>
+					</div>	
+				</div>
+				<div class="formLine formLine_fin">
+					<div class="inputBackground input90 borderRadius5" id="bg_email">
+						<div class="inputBackground_img ico_email"></div>
+						<div class="inputBackground_text">
+							<input type="text" class='input_' id="email" placeholder="Email">
+						</div>
+					</div>						
+				</div>
+			</div>
+		</div>
+		<div class="section">
+			<div class="tarjeta borderRadius5">
+				<select class="select_ borderRadius5" id="objeto">
+			    	<option selected="selected" value="">*Objeto a tasar</option>
+			    	<option value="Joya Oro">Joya Oro</option>
+			    	<option value="Lingote Oro">Lingote Oro</option>
+			    	<option value="Otros Oro">Otros Oro</option>
+			    	<option value="Cubertería Plata">Cubertería Plata</option>
+			    	<option value="Juego Café Plata">Juego Café Plata</option>
+			    	<option value="Bandeja Plata">Bandeja Plata</option>
+			    	<option value="Candelabros Plata">Candelabros Plata</option>
+			    	<option value="Otros Plata">Otros Plata</option>
+			    	<option value="Lingote Plata">Lingote Plata</option>
+			    	<option value="Joyería Platino">Joyería Platino</option>
+			    	<option value="Lingote Platino">Lingote Platino</option>
+			    	<option value="Reloj">Reloj</option>
+			    	<option value="Otros">Otros</option>
+			    </select>
+			    <textarea class="textarea_ borderRadius5" placeholder="Descripción/comentarios" id="descripcion" maxlength="240"></textarea>
+			    <div class="terminos_line">
+			    	<div id="terminos_check"><img src="img/chek_off.png"/></div>
+			    	<div id="terminos_txt">Acepto los <a id="terminosLink">términos</a>.</div>
+			    </div>
+			</div>
+		</div>
+		<div class="section section-unique">
+			<div id="btnContinuar" class="borderRadius5">
+				<div class="text_button textEnviar">Continuar</div>
+			</div>
+			<div class="txterror"></div>
+		</div>
+
+		<div class="section section-unique">
+			<div class="btnSettings"></div>
+		</div>
+
+		
+		<div class="page" id="page-right">
+			
+			<div class="sectionPage topPage">
+				<div id="btnBack">
+					<div class="flechaback"><svg class="svgStyle"><line x1="100%" y1="0" x2="0" y2="50%" class="lineFlecha"/><line x1="0" y1="50%" x2="100%" y2="100%" class="lineFlecha"/></svg></div>
+					<div class="flechaback"><svg class="svgStyle"><line x1="100%" y1="0" x2="0" y2="50%" class="lineFlecha"/><line x1="0" y1="50%" x2="100%" y2="100%" class="lineFlecha"/></svg></div>
+				</div>
+			</div>
+			
+			<div class="sectionPage centerPage">
+				<div class="imagen_content" id="imagen_content_1">
+					<div class="btnCapture borderRadius5" id="btnCapture_1">
+						<div class="flechaDerecha"><svg class="svgStyle svgButton"><line x1="0" y1="0" x2="100%" y2="50%" class="lineFlecha"/><line x1="100%" y1="50%" x2="0" y2="100%" class="lineFlecha"/></svg></div>
+						<div class="flechaAbajo"><svg class="svgStyle svgButton"><line x1="0" y1="0" x2="50%" y2="100%" class="lineFlecha"/><line x1="50%" y1="100%" x2="100%" y2="0" class="lineFlecha"/></svg></div>
+						<div class="icon_button iconCamara"></div>
+						<div class="text_button textCamara">Cámara</div>
+					</div>
+					<div class="btnFind borderRadius5" id="btnFind_1">
+						<div class="flechaDerecha"><svg class="svgStyle svgButton"><line x1="0" y1="0" x2="100%" y2="50%" class="lineFlecha"/><line x1="100%" y1="50%" x2="0" y2="100%" class="lineFlecha"/></svg></div>
+						<div class="flechaArriba"><svg class="svgStyle"><line x1="0" y1="100%" x2="50%" y2="0" class="lineFlecha"/><line x1="50%" y1="0" x2="100%" y2="100%" class="lineFlecha"/></svg></div>
+						<div class="icon_button iconAlbum"></div>
+						<div class="text_button textAlbum">Álbum</div>
+					</div>
+					<div class="imgVista borderRadius5" id="imgVista_1">
+						<div class="tamanoImg" id="tamanoImg1"></div>
+					</div>
+				</div>
+				<div class="imagen_content" id="imagen_content_2">
+					<div class="btnCapture borderRadius5" id="btnCapture_2">
+						<div class="flechaDerecha"><svg class="svgStyle svgButton"><line x1="0" y1="0" x2="100%" y2="50%" class="lineFlecha"/><line x1="100%" y1="50%" x2="0" y2="100%" class="lineFlecha"/></svg></div>
+						<div class="flechaAbajo"><svg class="svgStyle svgButton"><line x1="0" y1="0" x2="50%" y2="100%" class="lineFlecha"/><line x1="50%" y1="100%" x2="100%" y2="0" class="lineFlecha"/></svg></div>
+						<div class="icon_button iconCamara"></div>
+						<div class="text_button textCamara">Cámara</div>
+					</div>
+					<div class="btnFind borderRadius5" id="btnFind_2">
+						<div class="flechaDerecha"><svg class="svgStyle svgButton"><line x1="0" y1="0" x2="100%" y2="50%" class="lineFlecha"/><line x1="100%" y1="50%" x2="0" y2="100%" class="lineFlecha"/></svg></div>
+						<div class="flechaArriba"><svg class="svgStyle"><line x1="0" y1="100%" x2="50%" y2="0" class="lineFlecha"/><line x1="50%" y1="0" x2="100%" y2="100%" class="lineFlecha"/></svg></div>					
+						<div class="icon_button iconAlbum"></div>
+						<div class="text_button textAlbum">Álbum</div>
+					</div>
+					<div class="imgVista borderRadius5" id="imgVista_2">
+						<div class="tamanoImg" id="tamanoImg2"></div>
+					</div>
+				</div>
+				<div class="imagen_content" id="imagen_content_3">
+					<div class="btnCapture borderRadius5" id="btnCapture_3">
+						<div class="flechaDerecha"><svg class="svgStyle svgButton"><line x1="0" y1="0" x2="100%" y2="50%" class="lineFlecha"/><line x1="100%" y1="50%" x2="0" y2="100%" class="lineFlecha"/></svg></div>
+						<div class="flechaAbajo"><svg class="svgStyle svgButton"><line x1="0" y1="0" x2="50%" y2="100%" class="lineFlecha"/><line x1="50%" y1="100%" x2="100%" y2="0" class="lineFlecha"/></svg></div>
+						<div class="icon_button iconCamara"></div>
+						<div class="text_button textCamara">Cámara</div>
+					</div>
+					<div class="btnFind borderRadius5" id="btnFind_3">
+						<div class="flechaDerecha"><svg class="svgStyle svgButton"><line x1="0" y1="0" x2="100%" y2="50%" class="lineFlecha"/><line x1="100%" y1="50%" x2="0" y2="100%" class="lineFlecha"/></svg></div>
+						<div class="flechaArriba"><svg class="svgStyle"><line x1="0" y1="100%" x2="50%" y2="0" class="lineFlecha"/><line x1="50%" y1="0" x2="100%" y2="100%" class="lineFlecha"/></svg></div>
+						<div class="icon_button iconAlbum"></div>
+						<div class="text_button textAlbum">Álbum</div>
+					</div>
+					<div class="imgVista borderRadius5" id="imgVista_3">
+						<div class="tamanoImg" id="tamanoImg3"></div>
+					</div>
+				</div>				
+			</div>
+			
+			<div class="sectionPage bottomPage">
+				<div id="btnSend" class="borderRadius5">
+					<div class="text_button textEnviar">Enviar</div>
+				</div>
+				<div id="btnSend_off" class="borderRadius5">
+					<div class="text_button textEnviar">Enviar</div>
+				</div>
+			</div>
+			
+		</div>
+
+		<div class="page" id="page-settings">
+			<div class="secSettings borderRadius5" id="secSettings_1">
+				<div class="btnSettings_option option_ini" id="btnRecAmigo">
+					<div class="btnSettings_option_text">Recomendar a un amigo</div>
+					<div class="btnSettings_option_flecha">
+						<svg class="svgStyle"><line x1="0" y1="0" x2="100%" y2="50%" class="lineFlecha"/><line x1="100%" y1="50%" x2="0" y2="100%" class="lineFlecha"/></svg>
+					</div>
+				</div>
+				<div class="btnSettings_option" id="btnHelp">
+					<div class="btnSettings_option_text">Ayuda</div>
+					<div class="btnSettings_option_flecha">
+						<svg class="svgStyle"><line x1="0" y1="0" x2="100%" y2="50%" class="lineFlecha"/><line x1="100%" y1="50%" x2="0" y2="100%" class="lineFlecha"/></svg>
+					</div>
+				</div>
+				<div class="btnSettings_option" id="btnAttCliente">
+					<div class="btnSettings_option_text">Atención al Cliente</div>
+					<div class="btnSettings_option_flecha">
+						<svg class="svgStyle"><line x1="0" y1="0" x2="100%" y2="50%" class="lineFlecha"/><line x1="100%" y1="50%" x2="0" y2="100%" class="lineFlecha"/></svg>
+					</div>
+				</div>
+			</div>
+			<div class="secSettings borderRadius5" id="secSettings_2">
+				<div class="btnSettings_option option_ini" id="btnAvisoLegal">
+					<div class="btnSettings_option_text">Aviso Legal</div>
+					<div class="btnSettings_option_flecha">
+						<svg class="svgStyle"><line x1="0" y1="0" x2="100%" y2="50%" class="lineFlecha"/><line x1="100%" y1="50%" x2="0" y2="100%" class="lineFlecha"/></svg>
+					</div>
+				</div>
+				<div class="btnSettings_option" id="btnAcerca">
+					<div class="btnSettings_option_text">Acerca de...</div>
+					<div class="btnSettings_option_flecha">
+						<svg class="svgStyle"><line x1="0" y1="0" x2="100%" y2="50%" class="lineFlecha"/><line x1="100%" y1="50%" x2="0" y2="100%" class="lineFlecha"/></svg>
+					</div>
+				</div>
+			</div>
+			<div class="secSettings borderRadius5" id="secSettings_3">
+				<div class="btnSettings_option option_ini" id="btnAppBrowser">
+					<div class="btnSettings_option_text">www.ReyPlata.com</div>
+					<div class="btnSettings_option_flecha">
+						<svg style='width: 100%; height: 100%;'><line x1="0" y1="0" x2="100%" y2="50%" class="lineFlecha"/><line x1="100%" y1="50%" x2="0" y2="100%" class="lineFlecha"/></svg>
+					</div>
+				</div>
+			</div>
+			<div id="btnSettings_back" class="ios-6-arrow left grey" data-title="Volver"></div>
+		</div>
+		
+		<div class="page" id="page-help">
+			<div class="secHelp borderRadius5" id="helpContent_1">
+				<div class="secHelp_int">
+					<div class="secHelp_int_title">Ayuda</div>
+					<div class="separator15"></div>
+					<div class="secHelp_int_text">
+						La aplicación para tasar tus joyas, relojes y otros objetos valiosos que quieras vender es muy sencilla:<br/><br/>
+						<span class="negrita">1</span>.- En la primera pantalla deberás indicar tu nombre, teléfono de contacto y código postal como obligatorios y el email como opcional pero recomendado.<br/><br/>
+						<span class="negrita">2</span>.- De la pieza que quieras tasar debes indicarnos así mismo su tipo ( anillo oro, cadena oro, pendientes oro, pulsera plata, otros oro, otros plata, reloj, cubertería plata, otros ) y nos ayudará una breve descripción (si tiene caja, factura, garantía, etc.)<br/><br/>
+						<span class="negrita">3</span>.- Una vez aceptados estos datos podrás en la página siguiente realizar hasta 3 fotos del objeto y enviárnoslas así fácilmente para que lo podamos valorar lo antes y con la mayor precisión posible.<br/><br/>
+						<span class="negrita">4</span>.- Puedes enviarnos con tu aplicación JdeO cuantos objetos quieras que te tasemos. Pero por favor recuerda que aunque somos especialistas en todo tipo de joyas, relojes y en general todo tipo de objetos de oro, plata, platino y diamantes.<br/><br/>
+						Por último si tienes alguna duda en <a href="mailto:info@reyplata.com">info@reyplata.com</a> procuraremos resolverla a la mayor brevedad.<br/><br/>
+					</div>
+				</div>
+			</div>
+			<div class="secHelp borderRadius5" id="helpContent_2">
+				<div class="secHelp_int">
+					<div class="secHelp_int_title">Atención al Cliente</div>
+					<div class="separator15"></div>
+					<div class="secHelp_int_text">
+						Contáctanos si necesitas ayuda o tienes alguna consulta:<br/><br/>
+						<span class="negrita">Tfno.</span>: <a href="tel:91 662 60 60">91 662 60 60</a><br/><br/>
+						<span class="negrita">Email</span>: <a href="mailto:info@reyplata.com">info@reyplata.com</a><br/><br/>
+					</div>
+				</div>
+			</div>
+			<div class="secHelp borderRadius5" id="helpContent_3">
+				<div class="secHelp_int">
+					<div class="secHelp_int_title">Aviso Legal</div>
+					<div class="separator15"></div>
+					<div class="secHelp_int_text">
+						<span class="negrita">Política de privacidad y protección de datos</span><br/><br/>
+						ReyPlata  precisa para su operativa diversa información de sus usuarios.<br/><br/>
+						Los datos de los interesados en tasar sus objetos se tratarán conforme a las disposiciones de la Ley Orgánica 15/1999, de 13 de Diciembre de Protección de Datos de carácter personal (en adelante “LOPD”) y del Real Decreto 1720/2007, de 21 de diciembre, por el que se aprueba el Reglamento de Desarrollo de la Ley Orgánica 15/1999, de 13 de diciembre, de protección de datos de carácter personal (en adelante “RLOPD”).<br/><br/>					
+						ReyPlata establecerá las medidas de índole técnica y organizativas necesarias para garantizar la seguridad que deben reunir los ficheros automatizados, los centros de tratamiento, locales, equipos, sistemas, programas y personas que intervengan en el tratamiento automatizado de los datos de carácter personal en la forma legal y reglamentariamente prevista.<br/><br/>
+						Los usuarios podrán ejercitar en cualquier momento, los derechos de acceso, rectificación, cancelación u oposición previstos en la LOPD. A tal efecto podrán hacerlo enviando un correo electrónico (e-mail) con los datos precisos a <a href="mailto:admin@reyplata.com">admin@reyplata.com</a> e indicando en el asunto "cancelación datos personales".<br/><br/>
+						<span class="negrita">Política de cookies:</span><br/><br/>					
+						usamos las cookies estrictamente necesarias. Estas cookies son fundamentales para que la Página funcione y permiten que navegue a través de ella y utilice sus servicios y funcionalidades. Sin estas cookies, la Página no funcionará tan satisfactoriamente como usted desearía y no podríamos brindarle la Página o ciertos servicios o funcionalidades que usted solicitado específicamente.<br/><br/>					
+						Si tiene más preguntas, pónganse en contacto con nosotros por correo electrónico en <a href="mailto:info@reyplata.com">info@reyplata.com</a>.<br/><br/>
+					</div>
+				</div>
+			</div>
+			<div class="secHelp borderRadius5" id="helpContent_4">
+				<div class="secHelp_int">
+					<div class="secHelp_int_title">Acerca de...</div>
+					<div class="separator15"></div>
+					<div class="secHelp_int_text" style="line-height:1.2em;">
+						<span class="negrita">&copy; REY PLATA CORPORACION S.A. 2013</span>
+						<br/><br/>
+						<span class="negrita">Versión</span>
+						<br/>
+						<span class="cursiva">1.01</span><br/><br/>
+						<span class="negrita">Desarrollada por:</span>
+						<br/> 
+						<span class="cursiva">Shortcut eMarketing S.L.</span>
+						<br/><br/>
+					</div>
+				</div>
+			</div>
+			
+			<div id="btnHelp_back" class="ios-6-arrow left grey" data-title="Volver"></div>
+
+		</div>
+
+	</div>
+
+</div>
+	
+	<div id="fancy">
+		<div id="fancyBackground"></div>
+		<div id="loader">
+			<div id="loaderImg">
+				<div id="floatingBarsG">
+					<div class="blockG" id="rotateG_01"></div>
+					<div class="blockG" id="rotateG_02"></div>
+					<div class="blockG" id="rotateG_03"></div>
+					<div class="blockG" id="rotateG_04"></div>
+					<div class="blockG" id="rotateG_05"></div>
+					<div class="blockG" id="rotateG_06"></div>
+					<div class="blockG" id="rotateG_07"></div>
+					<div class="blockG" id="rotateG_08"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+</body>
+</html>

@@ -1,0 +1,79 @@
+.btnSettings, .btnSettingsFixed{width:50px;height:50px;left:10px;}
+
+html,body,input, textarea {font-size:24px;}
+
+.borderRadius5{border-radius:10px;}
+
+.btnSettings_option{height:80px;}
+
+.btnSettings_option_flecha{height:56px;}
+
+.btnSettings_option_text{font-size: 22px;line-height: 26px;left:20px;top:22px;}
+
+.ios-6-arrow.grey {
+  height: 46px; 
+  min-width: 40px; 
+}
+.ios-6-arrow.grey.left:before {
+  -webkit-background-size: 40px 38px; 
+  -moz-background-size: 40px 38px; 
+  -o-background-size: 40px 38px; 
+  background-size: 40px 38px; 
+  -webkit-transform: rotate(-45deg) scale(0.8) skew(-9deg, -9deg);
+  -moz-transform: rotate(-45deg) scale(0.8) skew(-9deg, -9deg);
+  -ms-transform: rotate(-45deg) scale(0.8) skew(-9deg, -9deg);
+  -o-transform: rotate(-45deg) scale(0.8) skew(-9deg, -9deg);
+  transform: rotate(-45deg) scale(0.8) skew(-9deg, -9deg);
+  left: 42px;
+  width: 38px;
+  height: 42px;
+  background-position: 0px 0;
+}
+.ios-6-arrow.grey.left:after {
+  -webkit-background-size: 46px 46px;
+  -moz-background-size: 46px 46px;
+  -o-background-size: 46px 46px;
+  background-size: 46px 46px;
+  left: 22px;
+  padding: 10px 20px 10px 10px;
+  height: 47px;
+  font-size: 22px;
+  line-height: 26px; 
+}
+.ios-6-arrow.grey:hover:after {
+  -webkit-background-size: 46px 46px;
+  -moz-background-size: 46px 46px;
+  -o-background-size: 46px 46px;
+  background-size: 46px 46px;
+}
+.ios-6-arrow.grey:hover:before {
+  -webkit-background-size: 40px 38px;
+  -moz-background-size: 40px 38px;
+  -o-background-size: 40px 38px;
+  background-size: 40px 38px;
+}
+
+#btnSettings_back, #btnHelp_back{
+	bottom:10px;
+	left:-30px;
+}
+
+.inputBackground_img{
+ 	width:5%;
+ 	height:1em;
+ 	margin-top:1%;
+ }
+.ico_telefono{width:10%;}
+.ico_cp{width:14%;}
+
+.text_button{
+	font-size:1.6em;
+}
+
+.svgButton{
+	height: 70%;
+}
+
+.bottomPage{
+	margin-top:1%;
+}
