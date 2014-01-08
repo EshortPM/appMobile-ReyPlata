@@ -1,14 +1,11 @@
-document.addEventListener("orientationchange",orientationChange,false);
 document.addEventListener("deviceready", onDeviceReady, false);
 
-function orientationChange(){
-	var orientado_actual = (inArray(window.orientation, [0,180])) ? 'portrait' : 'landscape';
-	ajustaCentroFotos();
-}
-orientationChange();
+var txt_btn_captura_imagen = "capturar imagen";
+var txt_btn_selecciona_imagen = "seleccionar imagen existente";
+var txt_btn_cancela_captura = "cancelar";
+
 
 function showAlert(text){navigator.notification.alert(text,null,nombreApp,txt_btn_aceptar);}
-
 
 /*------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ DEVICE READY */
 function onDeviceReady() {
@@ -87,8 +84,31 @@ function onDeviceReady() {
 		excludedElements:"button, input, select, textarea, .noSwipe"
 	});
 	
+	$(".btnCapture_img").swipe({
+		tap:function(event, target) {
+			clearError();
+			if (cargandoPhoto == 0){
+				cargandoPhoto = 1;
+				var id = $(this).attr('id');
+				numPhoto = parseInt(id.substr(-1,1));
+				navigator.notification.confirm('', function(btn){
+					if (btn == 1){
+						alert('capturamos foto'+numPhoto);
+					}else if(btn == 2){
+						alert('buscamos en libreria'+numPhoto);
+					}else{
+						cargandoPhoto = 0;
+					}
+				}, nombreApp, txt_btn_captura_imagen+','+txt_btn_selecciona_imagen+','+txt_btn_cancela_captura);	
+			}
+		},
+		excludedElements:"button, input, select, textarea, .noSwipe"
+	});
 	
 	
+	
+	
+	/*
 	$(".btnCapture").swipe({
 		tap:function(event, target) {
 			clearError();
@@ -116,6 +136,7 @@ function onDeviceReady() {
 		},
 		excludedElements:"button, input, select, textarea, .noSwipe"
 	});
+	*/
 	
 	$("#btnContinuar").swipe({
 		tap:function(event, target) {
@@ -207,7 +228,7 @@ function onDeviceReady() {
 					if (focusSelect) {okDatos = false; $(".select_").blur();}
 				}
 				
-				//okDatos = true;
+				okDatos = true;
 				
 				if (okDatos){
 					
@@ -239,7 +260,7 @@ function onDeviceReady() {
 		excludedElements:"button, input, select, textarea, .noSwipe"
 	});
 	
-	$(".btnSettings").swipe({
+	$("#btnSettings").swipe({
 		tap:function(event, target) {
 			clearError();
 			$("#page-settings").stop().animate({

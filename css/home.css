@@ -16,6 +16,8 @@ input, textarea {color:#000;}
 .shadowBox{-moz-box-shadow: 2px 2px 4px #000;-webkit-box-shadow: 2px 2px 4px #000;-o-box-shadow: 2px 2px 4px #000;-ms-box-shadow: 2px 2px 4px #000;box-shadow: 2px 2px 4px #000;}
 .negrita{font-weight:bold;}.cursiva{font-style:italic;}
 img{margin:0;padding:0;}.imageWidth{width:100%;max-width:100%;}.imagenHeight{max-height:100%;}
+button {background: transparent; /* Fix for Chrome and Firefox OS */}
+:focus {outline: 0;} 
 
 html,body{
 	margin:0;
@@ -35,56 +37,53 @@ html,body{
 .svgStyle{width: 100%;height: 100%;}
 .svgButton{height: 100%;}
 
-#fondo{
-	position:absolute;
-	top:0px;
-	left:0px;
-	width:100%;
-	height:100%;
-	overflow:hidden;
-}
-
 /* Tabbar */
 nav {
 	position: fixed;
 	bottom: 0;
 	width: 100%;
 	height: 49px;
-	text-align: center;
 	background-color: rgba(248, 248, 248, 0.9);
-	background-image: linear-gradient(180deg, rgb(200, 199, 204), rgb(200, 199, 204) 50%, transparent 50%);
-	background-size: 100% 1px;
-	background-repeat: no-repeat;
-	background-position: top center;
+	-webkit-user-select: none;
+	   -moz-user-select: none;
+	        user-select: none;
+	-webkit-touch-callout: none;
 	z-index: 100;
 }
 
 nav button {
-	display: inline-block;
-	width: 64px;
+	position:absolute;
+	width:64px;
+	height:45px;
+	top:2px;
+	margin:0;
+	background-color:transparent;
+	border:none;
 	text-align: center;
 	font-size: 10px;
-	line-height: 1em;
-	padding: 6px 0 0 0;
-	margin: 0;
-	color: rgb(111, 111, 116);
+	color:#6f6f74;
 }
 
-nav button.active {
-	color:rgb(21, 125, 251);
-}
+#btnSettings{left:5px;}
+#btnContinuar, #btnSend{right:5px;}
+#btnSend{display:none;}
+
 nav button .btn-icon {
 	display: inline-block;
-	/*background-color: rgb(111, 111, 116);*/
 	height: 22px;
 	width: 22px;
-	margin-bottom: 2px;
-}
-nav button.active .btn-icon {
-	background-color:rgb(21, 125, 251);
+	background-image:url(../img/iconos22x22.png);
 }
 
-#topBar, #bottomBar{
+.iconSettings{background-position:0px -110px;}
+.iconDerecha{background-position:0px -44px;}
+
+#btnSettings:active .iconSettings{background-position:22px -110px;}
+#btnContinuar:active .iconDerecha{background-position:22px -44px;}
+#btnSend:active .iconDerecha{background-position:22px -44px;}
+#btnSettings:active .label, #btnContinuar:active .label, #btnSend:active .label{color:#157dfb;}
+
+#topBar{
 	position:absolute;
 	left:0px;
 	line-height:44px;
@@ -92,86 +91,45 @@ nav button.active .btn-icon {
 	padding-top:0;
 	height:44px;
 	background-color: rgba(248, 248, 248, 0.9);
+	top:0px;
 	-webkit-user-select: none;
 	   -moz-user-select: none;
 	        user-select: none;
 	-webkit-touch-callout: none;
 }
-#topBar{top:0px;}
-#bottomBar{bottom:0px;}
 
-#topBar button, #bottomBar button  {
-	position: absolute;
-	top: 0;
-	display: inline-block;
-	-webkit-tap-highlight-color: rgba(0,0,0,0);
-	font-size: 17px;
-	color:rgb(21, 125, 251);
-	padding: 0;
-	font-weight: 300;
-	height: 44px;
-	line-height: 44px;
-	text-overflow: ellipsis !important; /* why so !important ? */
-	max-width: 140px;
-}
-#topBar button:active, #bottomBar button:active {
-	opacity: 0.3;
-}
-#topBar button.bold, #bottomBar button.bold {
-	font-weight: 500;
-}
-#topBar button.green, #bottomBar button.green {
-	color:rgb(41, 197, 25);
-}
-#topBar button.disabled, #bottomBar button.disabled {
-	color:rgb(200, 199, 204);
-}
-#topBar button.arrow, #bottomBar button.arrow {
-	background-size: 24px 44px;
-	background-repeat: no-repeat;
-}
-
-#topBar button.left, #bottomBar button.left {
-	left:0;
-	padding-left: 9px;
-}
-#topBar button.left.arrow, #bottomBar button.left.arrow {
-	padding-left: 23px;
-	background-image: url(../img/backBtn.svg);
-	background-position: left bottom;
-}
-#topBar button.right, #bottomBar button.right {
-	right:0;
-	text-align: right;
-	padding-right: 9px;
-}
-#topBar button.right.arrow, #bottomBar button.right.arrow {
-	padding-right: 23px;
-	background-image: url(../img/nextBtn.svg);
-	background-position: right bottom;
-}
-
-#topBar h1, #bottomBar h1 {
-	display: block;
-	padding: 0;
-	font-size: 17px;
-	white-space: nowrap;
-	text-overflow: ellipsis;
-	text-align: center;
-	overflow: hidden;
-	-webkit-box-flex: 1;
-	   -moz-box-flex: 1;
-	        box-flex: 1;
-	margin: 0 65px;
-	font-weight: 500;
-    -webkit-tap-highlight-color: transparent;
-}
-
-#contentView{
+#topBarText{
 	position:absolute;
 	width:100%;
-	left:0px;
-	top:44px;
+	text-align:center;
+	font-size:17px;
+	color:#000;
+}
+
+#btnVolver{
+	position:absolute;
+	width:80px;
+	top:10px;
+	left:5px;
+	height:22px;
+	display:none;
+}
+
+#btnVolver:hover:active {opacity:0.5;}
+
+.btnVolver_icon{
+	position:absolute;
+	width:22px;
+	height:22px;
+	background-image: url(../img/iconos22x22.png);
+	background-position:-22px -22px;
+}
+.btnVolver_text{
+	position:absolute;
+	left:25px;
+	color:#157DFB;
+	top:-10px;
+	width:55px;
 }
 
 .topBar_title{
@@ -312,25 +270,12 @@ nav button.active .btn-icon {
 	margin:0 auto;
 }
 
-.cabecera{
-	position:relative;
-	float:left;
-	width:100%;
-	display:block;
-	overflow:hidden;
-}
 .cuerpo{
-	position:relative;
-	float:left;
+	position:absolute;
+	top:44px;
+	left:0px;
 	width:100%;
-	display:block;
-	overflow:hidden;
-}
-
-#banner{
-	float:left;
-	width:100%;
-	overflow:hidden;
+	height:436px; /*iphone 4s (480-44)*/
 }
 
 .page { 
@@ -339,7 +284,7 @@ nav button.active .btn-icon {
 	width:100%;
 	height:100%;
 	max-height:100%;
-	background-color:rgb(0,29,69);
+	background-color:#001e45;
 }
 #page-right{left:100%;}
 #page-settings{left:100%;z-index:60;}
@@ -512,23 +457,6 @@ nav button.active .btn-icon {
 #terminosLink{text-decoration:underline;}
 #terminosLink:hover:active{text-shadow: 0px 0px 1px #fff;}
 
-#btnContinuar, #btnSend, #btnSend_off{
-	position:relative;
-	float:right;
-	margin-right:2%;
-	width:40%;
-	height:3em;
-	background-color:rgb(0,123,252);
-	-moz-box-shadow: inset 0px -1px 4px #000;
-	-webkit-box-shadow: inset 0px -1px 4px #000;
-	-o-box-shadow: inset 0px -1px 4px #000;
-	-ms-box-shadow: inset 0px -1px 4px #000;
-	box-shadow: inset 0px -1px 4px #000;
-}
-#btnContinuar{margin-top:2%;}
-#btnSend:hover:active, #btnContinuar:hover:active{background-color:rgb(0,64,128);}
-#btnSend_off{display:none;background-color:#bfbfbf;}
-
 .txterror{
 	position:relative;
 	float:right;
@@ -553,6 +481,51 @@ nav button.active .btn-icon {
 	z-index:50;
 }
 .btnSettings:hover:active{opacity:0.8;}
+
+.btnCapture_img{
+	position:relative;
+	float:left;
+	width:90%;
+	margin-left:5%;
+	margin-right:5%;
+	margin-top:10px;
+	background-color:#fff;
+	height:110px;
+}
+
+.btnCapture_image{
+	position:absolute;
+	width:100px;
+	height:100px;
+	top:5px;
+	right:33px;
+	background-color:#000;
+	opacity:0.2;
+}
+
+.btnCapture_icon{
+	position:absolute;
+	width:44px;
+	height:44px;
+	background-image:url(../img/iconos44x44.png);
+	background-position:0px -176px;
+	top:33px;
+	left:33px;
+}
+
+.btnCapture_flecha{
+	position:absolute;
+	width:44px;
+	height:44px;
+	background-image:url(../img/iconos44x44.png);
+	background-position:0px 0px;
+	top:33px;
+	left:92px;
+}
+
+
+
+
 
 .btnFind span input , .btnCapture span input {
     z-index: 499;
@@ -896,9 +869,12 @@ nav button.active .btn-icon {
 .btnSettings_option_flecha{
 	position:absolute;
 	right:10px;
-	width:3px;
-	top:12px;
-	height:16px;
+	width:22px;
+	top:8px;
+	height:22px;
+	background-image:url(../img/iconos22x22.png);
+	background-position:0px 0px;
+	opacity:0.7;
 }
 
 .btnSettings_option_text{
@@ -925,8 +901,8 @@ nav button.active .btn-icon {
     -ms-box-sizing: border-box;
     box-sizing: border-box;
     margin-top:5%;
-    height:85%;
-    max-height:85%;
+    height:80%;
+    max-height:80%;
     width:90%;
 }
 
