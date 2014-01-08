@@ -84,6 +84,8 @@ function onDeviceReady() {
 		excludedElements:"button, input, select, textarea, .noSwipe"
 	});
 	
+	/*
+	
 	$(".btnCapture_img").swipe({
 		tap:function(event, target) {
 			clearError();
@@ -105,7 +107,7 @@ function onDeviceReady() {
 		excludedElements:"button, input, select, textarea, .noSwipe"
 	});
 	
-	
+	*/
 	
 	
 	/*
@@ -247,6 +249,22 @@ function onDeviceReady() {
 		excludedElements:"button, input, select, textarea, .noSwipe"
 	});
 	
+	$("#btnVolver").swipe({
+		tap:function(event, target) {	
+			var paginaSetting_pos = $("#page-settings").css("left");
+			if (parseInt(paginaSetting_pos) == 0){
+				$("#page-settings").stop().animate({
+					left: "100%"
+				}, 500, function() {
+					// Animation complete.
+				});
+			}
+		},
+		excludedElements:"button, input, select, textarea, .noSwipe"
+	});
+	
+	
+	
 	$("#btnBack").swipe({
 		tap:function(event, target) {	
 			clearError();
@@ -276,11 +294,7 @@ function onDeviceReady() {
 	$("#btnSettings_back").swipe({
 		tap:function(event, target) {
 			clearError();
-			$("#page-settings").stop().animate({
-				left: "100%"
-			}, 500, function() {
-				// Animation complete.
-			});
+			
 		},
 		excludedElements:"button, input, select, textarea, .noSwipe"
 	});
@@ -417,6 +431,9 @@ function muestraHelp(num){
 		left: "0px"
 	}, 500, function() {
 		// Animation complete.
+		$("#btnVolver").show();
+		
+		
 	});
 }
 
