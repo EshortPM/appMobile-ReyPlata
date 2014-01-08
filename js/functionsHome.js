@@ -84,7 +84,7 @@ function onDeviceReady() {
 		excludedElements:"button, input, select, textarea, .noSwipe"
 	});
 	
-	/*
+	
 	
 	$(".btnCapture_img").swipe({
 		tap:function(event, target) {
@@ -107,7 +107,7 @@ function onDeviceReady() {
 		excludedElements:"button, input, select, textarea, .noSwipe"
 	});
 	
-	*/
+	
 	
 	
 	/*
@@ -246,24 +246,23 @@ function onDeviceReady() {
 				}
 			}
         },
-		excludedElements:"button, input, select, textarea, .noSwipe"
+		excludedElements:"input, select, textarea, .noSwipe"
 	});
 	
 	$("#btnVolver").swipe({
 		tap:function(event, target) {	
-			var paginaSetting_pos = $("#page-settings").css("left");
-			if (parseInt(paginaSetting_pos) == 0){
+			
 				$("#page-settings").stop().animate({
 					left: "100%"
 				}, 500, function() {
 					// Animation complete.
 				});
-			}
+			
 		},
 		excludedElements:"button, input, select, textarea, .noSwipe"
 	});
 	
-	
+	/*
 	
 	$("#btnBack").swipe({
 		tap:function(event, target) {	
@@ -278,7 +277,7 @@ function onDeviceReady() {
 		},
 		excludedElements:"button, input, select, textarea, .noSwipe"
 	});
-	
+	*/
 	$("#btnSettings").swipe({
 		tap:function(event, target) {
 			clearError();
@@ -288,9 +287,9 @@ function onDeviceReady() {
 				// Animation complete.
 			});
 		},
-		excludedElements:"button, input, select, textarea, .noSwipe"
+		excludedElements:"input, select, textarea, .noSwipe"
 	});
-	
+	/*
 	$("#btnSettings_back").swipe({
 		tap:function(event, target) {
 			clearError();
@@ -309,6 +308,7 @@ function onDeviceReady() {
 		},
 		excludedElements:"button, input, select, textarea, .noSwipe"
 	});
+	*/
 	
 	$("#btnRecAmigo").swipe({
 		tap:function(event, target) {
@@ -370,7 +370,7 @@ function onDeviceReady() {
 				navigator.notification.confirm(txt_error_data_noImage, envioDatosUser_noImg, nombreApp, txt_btn_aceptar+','+txt_btn_cancelar );
 			}
 		},
-		excludedElements:"button, input, select, textarea, .noSwipe"
+		excludedElements:"input, select, textarea, .noSwipe"
 	});
 	
 	/*device={name,cordova,platform,uuid,model,version}*/
