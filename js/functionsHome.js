@@ -140,6 +140,7 @@ function onDeviceReady() {
 	
 	$("#btnContinuar").swipe({
 		tap:function(event, target) {
+			alert('btnContinuar');
         	clearError();
 			if (comprobandoDatos == 0){
 				comprobandoDatos = 1;
