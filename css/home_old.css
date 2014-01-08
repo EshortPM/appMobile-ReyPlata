@@ -21,7 +21,7 @@ html,body{
 	margin:0;
 	padding:0;
     border:none;
-    background-color:#001e45;
+    background-color:rgb(0,29,69);
     color:#000;
     font-size:14px;
     font-family: "HelveticaNeue-Bold", "Helvetica Neue Bold", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;    
@@ -34,154 +34,6 @@ html,body{
 
 .svgStyle{width: 100%;height: 100%;}
 .svgButton{height: 100%;}
-
-#fondo{
-	position:absolute;
-	top:0px;
-	left:0px;
-	width:100%;
-	height:100%;
-	overflow:hidden;
-}
-
-/* Tabbar */
-nav {
-	position: fixed;
-	bottom: 0;
-	width: 100%;
-	height: 49px;
-	text-align: center;
-	background-color: rgba(248, 248, 248, 0.9);
-	background-image: linear-gradient(180deg, rgb(200, 199, 204), rgb(200, 199, 204) 50%, transparent 50%);
-	background-size: 100% 1px;
-	background-repeat: no-repeat;
-	background-position: top center;
-	z-index: 100;
-}
-
-nav button {
-	display: inline-block;
-	width: 64px;
-	text-align: center;
-	font-size: 10px;
-	line-height: 1em;
-	padding: 6px 0 0 0;
-	margin: 0;
-	color: rgb(111, 111, 116);
-}
-
-nav button.active {
-	color:rgb(21, 125, 251);
-}
-nav button .btn-icon {
-	display: inline-block;
-	/*background-color: rgb(111, 111, 116);*/
-	height: 22px;
-	width: 22px;
-	margin-bottom: 2px;
-}
-nav button.active .btn-icon {
-	background-color:rgb(21, 125, 251);
-}
-
-#topBar, #bottomBar{
-	position:absolute;
-	left:0px;
-	line-height:44px;
-	width:100%;
-	padding-top:0;
-	height:44px;
-	background-color: rgba(248, 248, 248, 0.9);
-	-webkit-user-select: none;
-	   -moz-user-select: none;
-	        user-select: none;
-	-webkit-touch-callout: none;
-}
-#topBar{top:0px;}
-#bottomBar{bottom:0px;}
-
-#topBar button, #bottomBar button  {
-	position: absolute;
-	top: 0;
-	display: inline-block;
-	-webkit-tap-highlight-color: rgba(0,0,0,0);
-	font-size: 17px;
-	color:rgb(21, 125, 251);
-	padding: 0;
-	font-weight: 300;
-	height: 44px;
-	line-height: 44px;
-	text-overflow: ellipsis !important; /* why so !important ? */
-	max-width: 140px;
-}
-#topBar button:active, #bottomBar button:active {
-	opacity: 0.3;
-}
-#topBar button.bold, #bottomBar button.bold {
-	font-weight: 500;
-}
-#topBar button.green, #bottomBar button.green {
-	color:rgb(41, 197, 25);
-}
-#topBar button.disabled, #bottomBar button.disabled {
-	color:rgb(200, 199, 204);
-}
-#topBar button.arrow, #bottomBar button.arrow {
-	background-size: 24px 44px;
-	background-repeat: no-repeat;
-}
-
-#topBar button.left, #bottomBar button.left {
-	left:0;
-	padding-left: 9px;
-}
-#topBar button.left.arrow, #bottomBar button.left.arrow {
-	padding-left: 23px;
-	background-image: url(../img/backBtn.svg);
-	background-position: left bottom;
-}
-#topBar button.right, #bottomBar button.right {
-	right:0;
-	text-align: right;
-	padding-right: 9px;
-}
-#topBar button.right.arrow, #bottomBar button.right.arrow {
-	padding-right: 23px;
-	background-image: url(../img/nextBtn.svg);
-	background-position: right bottom;
-}
-
-#topBar h1, #bottomBar h1 {
-	display: block;
-	padding: 0;
-	font-size: 17px;
-	white-space: nowrap;
-	text-overflow: ellipsis;
-	text-align: center;
-	overflow: hidden;
-	-webkit-box-flex: 1;
-	   -moz-box-flex: 1;
-	        box-flex: 1;
-	margin: 0 65px;
-	font-weight: 500;
-    -webkit-tap-highlight-color: transparent;
-}
-
-#contentView{
-	position:absolute;
-	width:100%;
-	left:0px;
-	top:44px;
-}
-
-.topBar_title{
-	position:absolute;
-	width:100%;
-	text-align:center;
-	color:#001e45;
-	font-size:14px;
-	margin-top:20px;
-}
 
 #fancy{
 	position:absolute;
@@ -206,10 +58,10 @@ nav button.active .btn-icon {
 .windowConfirm{
 	position:relative;
 	float:left;
-	width:80%;
-	margin-left:10%;
-	margin-right:10%;
-	margin-top:30%;
+	width:54%;
+	margin-left:23%;
+	margin-right:23%;
+	margin-top:10%;
 	background-color:#fff;
 	color:#000;
 	overflow:hidden;
@@ -301,7 +153,7 @@ nav button.active .btn-icon {
 	text-align:center;
 	color:#fff;
 	font-size:1em;
-	margin-top:60%;
+	margin-top:25%;
 	display:none;
 }
 
@@ -310,6 +162,15 @@ nav button.active .btn-icon {
 	width:30px;
 	height:37px;
 	margin:0 auto;
+}
+
+#fondo{
+	position:absolute;
+	width:100%;
+	top:0px;
+	left:0px;
+	display:block;
+	overflow:hidden;
 }
 
 .cabecera{
@@ -329,7 +190,7 @@ nav button.active .btn-icon {
 
 #banner{
 	float:left;
-	width:100%;
+	width:63%;
 	overflow:hidden;
 }
 
@@ -348,7 +209,7 @@ nav button.active .btn-icon {
 .section{
 	position:relative;
 	float:left;
-	width:100%;
+	width:50%;
 	display:block;
 	overflow:hidden;
 }
@@ -516,7 +377,7 @@ nav button.active .btn-icon {
 	position:relative;
 	float:right;
 	margin-right:2%;
-	width:40%;
+	width:27%;
 	height:3em;
 	background-color:rgb(0,123,252);
 	-moz-box-shadow: inset 0px -1px 4px #000;
@@ -532,11 +393,11 @@ nav button.active .btn-icon {
 .txterror{
 	position:relative;
 	float:right;
-	width:98%;
+	width:67%;
 	margin-top:2%;
 	margin-right:1%;
 	color:#FF0000;
-	text-align:center;
+	text-align:right;
 	font-size:0.9em;
 }
 
@@ -577,8 +438,8 @@ nav button.active .btn-icon {
 	font-size:1.25em;
 	font-family: "HelveticaNeue-Bold", "Helvetica Neue Bold", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 }
-.textCamara{top:25%;}
-.textAlbum{top:25%;}
+.textCamara{top:10%;}
+.textAlbum{top:35%;}
 
 .textEnviar{
 	left:0px;
@@ -600,8 +461,8 @@ nav button.active .btn-icon {
 	position:absolute;
 	top:0px;
 	left:1%;
-	width:15%;
-	height:10%;
+	width:8%;
+	height:15%;
 }
 #btnBack:hover:active{opacity:0.8;}
 
@@ -611,9 +472,10 @@ nav button.active .btn-icon {
 	height:80%;
 	top:10%;
 	left:88%;
+	display:none;
 }
-.flechaArriba{display:none;width:90%;left:5%;height:30%;top:0%;}
-.flechaAbajo{display:none;width:90%;left:5%;height:30%;top:65%;}
+.flechaArriba{display:block;width:90%;left:5%;height:30%;top:0%;}
+.flechaAbajo{display:block;width:90%;left:5%;height:30%;top:65%;}
 
 .lineFlecha{
 	stroke:#666;
@@ -630,10 +492,10 @@ nav button.active .btn-icon {
 
 .imgVista{
 	position:absolute;
-	width:40%;
-	height:100%;
-	top:0px;
-	left:50%;
+	width:100%;
+	height:58%;
+	top:21%;
+	left:0px;
 	background-image:url(../img/fondo_fotos.png);
 	background-size:100% 100%;
 	overflow:hidden;
@@ -650,8 +512,8 @@ nav button.active .btn-icon {
 
 .btnCapture{
 	position:absolute;
-	width:49%;
-	height:45%;
+	width:100%;
+	height:20%;
 	background-color:#aaa;
 	top:0px;
 	left:0px;
@@ -666,10 +528,10 @@ nav button.active .btn-icon {
 
 .btnFind{
 	position:absolute;
-	width:49%;
-	height:45%;
+	width:100%;
+	height:20%;
 	background-color:#aaa;
-	top:55%;
+	top:80%;
 	left:0px;
 	overflow:hidden;
 	-moz-box-shadow: inset 0px -1px 4px #000;
@@ -684,14 +546,15 @@ nav button.active .btn-icon {
 	position:relative;
 	float:left;
 	padding:0;
-	width:80%;
-	height:30%;
+	width:25%;
+	height:90%;
 	margin-top:3%;
-	margin-left:19%;
-	margin-right:1%;
+	margin-left:2%;
+	margin-right:0px;
 	overflow: hidden;
 }
-#imagen_content_1{margin-left:19%;}
+#imagen_content_1{margin-left:12%;}
+/*#imagen_content_3{margin-right:3%;}*/
 
 .icon_button{
 	position:absolute;
@@ -701,8 +564,8 @@ nav button.active .btn-icon {
 	background-size:100% 100%;
 }
 
-.iconCamara{background-image:url(../img/ico_camara.png);top:20%;}
-.iconAlbum{background-image:url(../img/ico_album.png);top:20%;}
+.iconCamara{background-image:url(../img/ico_camara.png);top:5%;}
+.iconAlbum{background-image:url(../img/ico_album.png);top:30%;}
 
 .ios-6-arrow.grey {
   display: -moz-inline-stack;
@@ -874,7 +737,7 @@ nav button.active .btn-icon {
     overflow:hidden;
 }
 
-#secSettings_1, #secSettings_2{width:90%; margin-top:5%;}
+#secSettings_1, #secSettings_2{width:40%; margin-top:2%;}
 #secSettings_3{width:90%; margin-top:5%;}
 
 .btnSettings_option{
@@ -896,7 +759,7 @@ nav button.active .btn-icon {
 .btnSettings_option_flecha{
 	position:absolute;
 	right:10px;
-	width:3px;
+	width:8px;
 	top:12px;
 	height:16px;
 }
@@ -924,9 +787,9 @@ nav button.active .btn-icon {
     -o-box-sizing: border-box;
     -ms-box-sizing: border-box;
     box-sizing: border-box;
-    margin-top:5%;
-    height:85%;
-    max-height:85%;
+    margin-top:2%;
+    height:75%;
+    max-height:75%;
     width:90%;
 }
 
@@ -964,3 +827,72 @@ nav button.active .btn-icon {
 	text-align:right;
 }
 .btnReturn:hover:active{opacity:0.8;}
+
+
+@media all and (orientation: portrait) {
+	
+				#banner{width:100%;}
+				.section{width:100%;}
+				#btnContinuar, #btnSend, #btnSend_off{width:40%;}
+				.txterror{width:50%;margin-right:1%;}
+
+				
+				.secHelp{ margin-top:5%;height:85%;max-height:85%;}
+	
+				#secSettings_1, #secSettings_2{width:90%; margin-top:5%;}
+	
+				.btnSettings_option_flecha{width:3%;}
+	
+				#loader{margin-top:60%;}
+	
+				.iconCamara, .iconAlbum{top:20%;}
+				.textCamara, .textAlbum{top:25%;}
+				
+				.flechaDerecha{display:block;}
+				.flechaArriba, .flechaAbajo{display:none;}
+				
+				.imagen_content{
+					width:80%;
+					height:30%;
+					margin-top:3%;
+					margin-left:19%;
+					margin-right:1%;
+				}
+				
+				#imagen_content_1{margin-left:19%;}
+				
+				.imgVista{
+					width:40%;
+					height:100%;
+					top:0px;
+					left:50%;
+				}
+								
+				.btnCapture{
+					width:49%;
+					height:45%;
+					top:0px;
+					left:0px;
+				}
+				
+				.btnFind{
+					width:49%;
+					height:45%;
+					top:55%;
+					left:0px;
+				}
+				
+				#btnBack{
+					width:15%;
+					height:10%;
+				}
+				
+				.windowConfirm{
+					width:80%;
+					margin-left:10%;
+					margin-right:10%;
+					margin-top:30%;
+				}
+				
+				
+}
