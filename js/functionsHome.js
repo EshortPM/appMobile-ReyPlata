@@ -4,6 +4,10 @@ var txt_btn_captura_imagen = "capturar imagen";
 var txt_btn_selecciona_imagen = "seleccionar imagen existente";
 var txt_btn_cancela_captura = "cancelar";
 
+var btn_volver_div = "";
+var page_settings_title = "Ayuda";
+var page_app_title = "Rey Plata";
+
 
 function showAlert(text){navigator.notification.alert(text,null,nombreApp,txt_btn_aceptar);}
 
@@ -83,9 +87,7 @@ function onDeviceReady() {
 		},
 		excludedElements:"button, input, select, textarea, .noSwipe"
 	});
-	
-	
-	
+
 	$(".btnCapture_img").swipe({
 		tap:function(event, target) {
 			clearError();
@@ -95,50 +97,19 @@ function onDeviceReady() {
 				numPhoto = parseInt(id.substr(-1,1));
 				navigator.notification.confirm('', function(btn){
 					if (btn == 1){
-						alert('capturamos foto'+numPhoto);
+						fancyShow('loader');
+						capturePhoto();
 					}else if(btn == 2){
-						alert('buscamos en libreria'+numPhoto);
+						fancyShow('loader');
+						getPhoto(pictureSource.PHOTOLIBRARY);
 					}else{
 						cargandoPhoto = 0;
 					}
-				}, nombreApp, txt_btn_captura_imagen+','+txt_btn_selecciona_imagen+','+txt_btn_cancela_captura);	
+				}, '', txt_btn_captura_imagen+','+txt_btn_selecciona_imagen+','+txt_btn_cancela_captura);	
 			}
 		},
 		excludedElements:"button, input, select, textarea, .noSwipe"
 	});
-	
-	
-	
-	
-	/*
-	$(".btnCapture").swipe({
-		tap:function(event, target) {
-			clearError();
-			if (cargandoPhoto == 0){
-				fancyShow('loader');
-				cargandoPhoto = 1;
-				var id = $(this).attr('id');
-				numPhoto = parseInt(id.substr(-1,1));
-				capturePhoto();
-			}
-		},
-		excludedElements:"button, input, select, textarea, .noSwipe"
-	});
-	
-	$(".btnFind").swipe({
-		tap:function(event, target) {
-			clearError();
-			if (cargandoPhoto == 0){
-				fancyShow('loader');
-				cargandoPhoto = 1;
-				var id = $(this).attr('id');
-				numPhoto = parseInt(id.substr(-1,1));
-				getPhoto(pictureSource.PHOTOLIBRARY);
-			}
-		},
-		excludedElements:"button, input, select, textarea, .noSwipe"
-	});
-	*/
 	
 	$("#btnContinuar").swipe({
 		tap:function(event, target) {
@@ -249,15 +220,30 @@ function onDeviceReady() {
 		excludedElements:"input, select, textarea, .noSwipe"
 	});
 	
+	$("#btnSettings").swipe({
+		tap:function(event, target) {
+			clearError();
+			btn_volver_div = "#page-settings";
+			$("#page-settings").stop().animate({
+				left: "0px"
+			}, 500, function() {
+				// Animation complete.
+				$("#topBarText").html(page_settings_title);
+				$("#btnVolver").show();
+			});
+		},
+		excludedElements:"input, select, textarea, .noSwipe"
+	});
+	
 	$("#btnVolver").swipe({
-		tap:function(event, target) {	
-			
-				$("#page-settings").stop().animate({
+		tap:function(event, target) {
+				$(btn_volver_div).stop().animate({
 					left: "100%"
 				}, 500, function() {
 					// Animation complete.
+					$("#topBarText").html(page_app_title);
+					$("#btnVolver").hide();
 				});
-			
 		},
 		excludedElements:"button, input, select, textarea, .noSwipe"
 	});
@@ -278,17 +264,7 @@ function onDeviceReady() {
 		excludedElements:"button, input, select, textarea, .noSwipe"
 	});
 	*/
-	$("#btnSettings").swipe({
-		tap:function(event, target) {
-			clearError();
-			$("#page-settings").stop().animate({
-				left: "0px"
-			}, 500, function() {
-				// Animation complete.
-			});
-		},
-		excludedElements:"input, select, textarea, .noSwipe"
-	});
+	
 	/*
 	$("#btnSettings_back").swipe({
 		tap:function(event, target) {
