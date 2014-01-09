@@ -342,8 +342,8 @@ function onDeviceReady() {
 	//ios7
 	if ((device.platform == 'iOS') && (parseInt(device.version) >= 7)) {
 		/*hay que dejarle 20px en el top de espaciado*/
-		StatusBar.overlaysWebView(true);
-    	StatusBar.backgroundColorByHexString("#C0C0C0");
+		//StatusBar.overlaysWebView(true);
+    	//StatusBar.backgroundColorByHexString("#C0C0C0");
 	}
 	
 	user.device = {
