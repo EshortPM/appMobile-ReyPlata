@@ -293,6 +293,15 @@ nav button .btn-icon {
 #page-settings{left:100%;z-index:60;}
 #page-help{left:100%;z-index:70;}
 
+.tumi{
+	position:relative;
+	width:32px;
+	height:48px;
+	margin:9px auto 0 auto;
+	background-image:url(../img/tumi48.png);
+	background-size:100% 100%;
+}
+
 .section{
 	position:relative;
 	float:left;
@@ -307,10 +316,7 @@ nav button .btn-icon {
 	float:left;
 	width:90%;
 	margin-left:5%;
-	border-width:1px;
-	border-color:#333;
-	border-style:solid;
-	margin-top:5%;
+	margin-top:2%;
 }
 
 .formLine{
