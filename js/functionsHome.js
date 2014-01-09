@@ -1,19 +1,5 @@
 document.addEventListener("deviceready", onDeviceReady, false);
-
-var txt_btn_captura_title = "elige tu opción";
-var txt_btn_captura_imagen = "capturar imagen";
-var txt_btn_selecciona_imagen = "seleccionar imagen existente";
-var txt_btn_cancela_captura = "cancelar";
-
-var page_settings_title = "Help";
-var page_app_title = "Rey Plata";
-var page_home_actual = 1;
-var page_settings_open = 0;
-var title_hepl_text = ['','Ayuda','Atención al Cliente','Aviso Legal','Acerca de...'];
-
-
 function showAlert(text){navigator.notification.alert(text,null,nombreApp,txt_btn_aceptar);}
-
 /*------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ DEVICE READY */
 function onDeviceReady() {
 	

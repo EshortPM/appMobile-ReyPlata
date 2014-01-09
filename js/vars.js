@@ -41,3 +41,12 @@ var mail_recAmigo_body = "Te recomiendo esta aplicación que te permitirá vende
 var iabRef;
 var loadpage = 0;
 var iabMail;
+var txt_btn_captura_title = "elige tu opción";
+var txt_btn_captura_imagen = "capturar imagen";
+var txt_btn_selecciona_imagen = "seleccionar imagen existente";
+var txt_btn_cancela_captura = "cancelar";
+var page_settings_title = "Help";
+var page_app_title = "Rey Plata";
+var page_home_actual = 1;
+var page_settings_open = 0;
+var title_hepl_text = ['','Manual de Uso','Atención al Cliente','Aviso Legal','Acerca de...'];
