@@ -1,14 +1,15 @@
 document.addEventListener("deviceready", onDeviceReady, false);
 
+var txt_btn_captura_title = "elige tu opción";
 var txt_btn_captura_imagen = "capturar imagen";
 var txt_btn_selecciona_imagen = "seleccionar imagen existente";
 var txt_btn_cancela_captura = "cancelar";
 
-var btn_volver_div = "";
 var page_settings_title = "Help";
 var page_app_title = "Rey Plata";
 var page_home_actual = 1;
 var page_settings_open = 0;
+var title_hepl_text = ['','Ayuda','Atención al Cliente','Aviso Legal','Acerca de...'];
 
 
 function showAlert(text){navigator.notification.alert(text,null,nombreApp,txt_btn_aceptar);}
@@ -107,7 +108,7 @@ function onDeviceReady() {
 					}else{
 						cargandoPhoto = 0;
 					}
-				}, '', txt_btn_captura_imagen+','+txt_btn_selecciona_imagen+','+txt_btn_cancela_captura);	
+				}, txt_btn_captura_title, txt_btn_captura_imagen+','+txt_btn_selecciona_imagen+','+txt_btn_cancela_captura);	
 			}
 		},
 		excludedElements:"button, input, select, textarea, .noSwipe"
@@ -203,7 +204,7 @@ function onDeviceReady() {
 					if (focusSelect) {okDatos = false; $(".select_").blur();}
 				}
 				
-				okDatos = true;
+				okDatos = true; txtError('');
 				
 				if (okDatos){
 					$("#page-right").stop().animate({
@@ -220,40 +221,7 @@ function onDeviceReady() {
 			}
         },
 		excludedElements:"input, select, textarea, .noSwipe"
-	});
-	
-	$("#btnSettings").swipe({
-		tap:function(event, target) {
-			if (page_settings_open == 0){
-				clearError();
-				$("#topBarText").html('');
-				$("#btnContinuar, #btnSend, #btnVolver_settings, #btnVolver, #btnVolver_home").hide();
-				$("#page-settings").stop().animate({
-					left: "0px"
-				}, 500, function() {
-					page_settings_open = 1;
-					$("#topBarText").html(page_settings_title);
-					$("#btnVolver_settings").show();
-				});
-			}
-		},
-		excludedElements:"input, select, textarea, .noSwipe"
-	});
-	
-	$("#btnVolver_settings").swipe({
-		tap:function(event, target) {
-			$("#page-settings").stop().animate({
-				left: "100%"
-			}, 500, function() {
-				page_settings_open = 0;
-				$("#topBarText").html(page_app_title);
-				$("#btnVolver_settings").hide();
-				if (page_home_actual == 1) $("#btnContinuar").show(); else $("#btnSend, #btnVolver_home").show();
-			});
-		},
-		excludedElements:"button, input, select, textarea, .noSwipe"
-	});
-	
+	});	
 	$("#btnVolver_home").swipe({
 		tap:function(event, target) {
 			$("#page-right").stop().animate({
@@ -267,18 +235,59 @@ function onDeviceReady() {
 		excludedElements:"button, input, select, textarea, .noSwipe"
 	});
 	
-	/*
-	$("#btnHelp_back").swipe({
+	
+	
+	$("#btnSettings").swipe({
 		tap:function(event, target) {
-			$("#page-help").stop().animate({
+			if (page_settings_open == 0){
+				clearError();
+				$("#topBarText").html('');
+				$("#btnContinuar, #btnSend, #btnVolver_settings, #btnVolver, #btnVolver_home, #btnSettings").hide();
+				$("#page-settings").stop().animate({
+					left: "0px"
+				}, 500, function() {
+					page_settings_open = 1;
+					$("#topBarText").html(page_settings_title);
+					$("#btnVolver_settings").show();
+				});
+			}
+		},
+		excludedElements:"input, select, textarea, .noSwipe"
+	});	
+	$("#btnVolver_settings").swipe({
+		tap:function(event, target) {
+			$("#btnVolver_settings").hide();
+			$("#topBarText").html('');
+			$("#page-settings").stop().animate({
 				left: "100%"
 			}, 500, function() {
-				// Animation complete.
+				page_settings_open = 0;
+				$("#topBarText").html(page_app_title);
+				$("#btnSettings").show();
+				if (page_home_actual == 1) $("#btnContinuar").show(); else $("#btnSend, #btnVolver_home").show();
 			});
 		},
 		excludedElements:"button, input, select, textarea, .noSwipe"
 	});
-	*/
+
+	$("#btnVolver").swipe({
+		tap:function(event, target) {
+			$("#topBarText").html('');
+			$("#btnVolver").hide();
+			$("#page-help").stop().animate({
+				left: "100%"
+			}, 500, function() {
+				if (page_settings_open == 1){
+					$("#topBarText").html(page_settings_title);
+					$("#btnVolver_settings").show();
+				}else{
+					$("#btnContinuar, #btnSettings").show();
+					$("#topBarText").html(page_app_title);
+				}
+			});
+		},
+		excludedElements:"button, input, select, textarea, .noSwipe"
+	});
 	
 	$("#btnRecAmigo").swipe({
 		tap:function(event, target) {
@@ -286,9 +295,7 @@ function onDeviceReady() {
 		},
 		excludedElements:"button, input, select, textarea, .noSwipe"
 	});
-	
-	
-	
+
 	$("#btnHelp").swipe({
 		tap:function(event, target) {
 			muestraHelp(1);
@@ -318,7 +325,6 @@ function onDeviceReady() {
 		tap:function(event, target) {
 			clearError();
 			$("#btnSend").hide();
-			$("#btnSend_off").show();
 			
 			//mostramos un loader
 			fancyShow('loader');
@@ -376,6 +382,18 @@ function onDeviceReady() {
 }
 /*------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ DEVICE READY */
 
+function muestraHelp(num){
+	for (var i=1; i<5; i++){if (i == num) $("#helpContent_"+i).show(); else $("#helpContent_"+i).hide();}
+	$("#topBarText").html('');
+	$("#btnContinuar, #btnSend, #btnVolver_settings, #btnVolver, #btnVolver_home, #btnSettings").hide();
+	$("#page-help").animate({
+		left: "0px"
+	}, 500, function() {
+		$("#topBarText").html(title_hepl_text[num]);
+		$("#btnVolver").show();
+	});
+}
+
 
 function iabLoadStart(event) {/*alert(event.type + ' - ' + event.url);*/}
 
@@ -395,17 +413,7 @@ function iabMailClose(event) {
      iabMail.removeEventListener('exit', iabMailClose);
 }
 
-function muestraHelp(num){
-	for (var i=1; i<5; i++){if (i == num) $("#helpContent_"+i).show(); else $("#helpContent_"+i).hide();}
-	$("#page-help").animate({
-		left: "0px"
-	}, 500, function() {
-		// Animation complete.
-		$("#btnVolver").show();
-		
-		
-	});
-}
+
 
 function savedLocal(){
 	localStorage.setItem('n',user.nombre);
@@ -438,7 +446,6 @@ function win(r) {
     	fancyClose();
 		showAlert(txt_error_uploadPhoto);
 		$("#btnSend").show();
-		$("#btnSend_off").hide();
     }else{
     	var nextNum = parseInt(r.response) + 1;
     	if (nextNum < 4) cargaSiguienteImagen(nextNum);
@@ -460,7 +467,6 @@ function fail(error) {
     //showAlert("An error has occurred: Code = " = error.code);
     showAlert(txt_error_uploadPhoto);
     $("#btnSend").show();
-	$("#btnSend_off").hide();
 }
 
 
@@ -470,7 +476,7 @@ function envioDatosUser_noImg(btn){
 		fancyShow('loader');
 		envioDatosUser();
 	}else{
-		$("#btnSend").show();$("#btnSend_off").hide();
+		$("#btnSend").show();
 	}
 }
 
@@ -501,7 +507,6 @@ function envioDatosUser(){
 					}else{
 						resetPhotos();
 						$("#btnSend").show();
-						$("#btnSend_off").hide();
 						resetObject();
 					}
 				}, nombreApp, txt_btn_si+','+txt_btn_no );
@@ -509,7 +514,6 @@ function envioDatosUser(){
 				fancyClose();
 				showAlert(txt_error_register);
 				$("#btnSend").show();
-				$("#btnSend_off").hide();
 			}
 		}
 	});
