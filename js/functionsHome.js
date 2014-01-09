@@ -5,8 +5,10 @@ var txt_btn_selecciona_imagen = "seleccionar imagen existente";
 var txt_btn_cancela_captura = "cancelar";
 
 var btn_volver_div = "";
-var page_settings_title = "Ayuda";
+var page_settings_title = "Help";
 var page_app_title = "Rey Plata";
+var page_home_actual = 1;
+var page_settings_open = 0;
 
 
 function showAlert(text){navigator.notification.alert(text,null,nombreApp,txt_btn_aceptar);}
@@ -113,7 +115,6 @@ function onDeviceReady() {
 	
 	$("#btnContinuar").swipe({
 		tap:function(event, target) {
-			alert('btnContinuar');
         	clearError();
 			if (comprobandoDatos == 0){
 				comprobandoDatos = 1;
@@ -205,13 +206,14 @@ function onDeviceReady() {
 				okDatos = true;
 				
 				if (okDatos){
-					
 					$("#page-right").stop().animate({
 						left: "0px"
 					}, 500, function() {
+						page_home_actual = 2;
+						$("#btnVolver_home, #btnSend").show();
+						$("#btnContinuar").hide();
 						comprobandoDatos = 0;
-					});
-								
+					});	
 				}else{
 					comprobandoDatos = 0;
 				}
@@ -222,58 +224,50 @@ function onDeviceReady() {
 	
 	$("#btnSettings").swipe({
 		tap:function(event, target) {
-			clearError();
-			btn_volver_div = "#page-settings";
-			$("#page-settings").stop().animate({
-				left: "0px"
-			}, 500, function() {
-				// Animation complete.
-				$("#topBarText").html(page_settings_title);
-				$("#btnVolver").show();
-			});
+			if (page_settings_open == 0){
+				clearError();
+				$("#topBarText").html('');
+				$("#btnContinuar, #btnSend, #btnVolver_settings, #btnVolver, #btnVolver_home").hide();
+				$("#page-settings").stop().animate({
+					left: "0px"
+				}, 500, function() {
+					page_settings_open = 1;
+					$("#topBarText").html(page_settings_title);
+					$("#btnVolver_settings").show();
+				});
+			}
 		},
 		excludedElements:"input, select, textarea, .noSwipe"
 	});
 	
-	$("#btnVolver").swipe({
+	$("#btnVolver_settings").swipe({
 		tap:function(event, target) {
-				$(btn_volver_div).stop().animate({
-					left: "100%"
-				}, 500, function() {
-					// Animation complete.
-					$("#topBarText").html(page_app_title);
-					$("#btnVolver").hide();
-				});
+			$("#page-settings").stop().animate({
+				left: "100%"
+			}, 500, function() {
+				page_settings_open = 0;
+				$("#topBarText").html(page_app_title);
+				$("#btnVolver_settings").hide();
+				if (page_home_actual == 1) $("#btnContinuar").show(); else $("#btnSend, #btnVolver_home").show();
+			});
 		},
 		excludedElements:"button, input, select, textarea, .noSwipe"
 	});
 	
-	/*
-	
-	$("#btnBack").swipe({
-		tap:function(event, target) {	
-			clearError();
-			//enviamos los datos y si no hay errorpasamos a subir las fotos
+	$("#btnVolver_home").swipe({
+		tap:function(event, target) {
 			$("#page-right").stop().animate({
 				left: "100%"
 			}, 500, function() {
-				// Animation complete.
+				page_home_actual = 1;
+				$("#btnVolver_home, #btnSend").hide();
+				$("#btnContinuar").show();
 			});
-			
 		},
 		excludedElements:"button, input, select, textarea, .noSwipe"
 	});
-	*/
 	
 	/*
-	$("#btnSettings_back").swipe({
-		tap:function(event, target) {
-			clearError();
-			
-		},
-		excludedElements:"button, input, select, textarea, .noSwipe"
-	});
-	
 	$("#btnHelp_back").swipe({
 		tap:function(event, target) {
 			$("#page-help").stop().animate({

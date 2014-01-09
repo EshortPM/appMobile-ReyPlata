@@ -107,7 +107,7 @@ nav button .btn-icon {
 	z-index:1;
 }
 
-#btnVolver{
+#btnVolver, #btnVolver_settings, #btnVolver_home{
 	position:absolute;
 	width:80px;
 	top:10px;
@@ -117,7 +117,7 @@ nav button .btn-icon {
 	display:none;
 }
 
-#btnVolver:hover:active {opacity:0.5;}
+#btnVolver:hover:active, #btnVolver_settings:hover:active,  #btnVolver_home:hover:active {opacity:0.5;}
 
 .btnVolver_icon{
 	position:absolute;
