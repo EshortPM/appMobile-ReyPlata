@@ -513,7 +513,7 @@ function creaImagen(numPhoto){
 	$("#tamanoImg"+numPhoto).append('<img id="smallImage'+numPhoto+'" style="width:100%;margin:0;padding:0;" src="'+photosCamera[numPhoto]+'" />');
 	$("#smallImage"+numPhoto).on('load', function(){
 		//alert('cargada la imagen');
-		$("#imgVista_"+numPhoto).css({'background-image':'none', 'background-color':'#000'});
+		$("#imgVista_"+numPhoto).css({'opacity':'1'});
 		redimensionaFoto(numPhoto);
 	});
 }
