@@ -5,6 +5,9 @@ function onDeviceReady() {
 	
 	pictureSource=navigator.camera.PictureSourceType;
     destinationType=navigator.camera.DestinationType;
+    
+    
+    
 
 	if (localStorage.getItem('n')){
 		var nomberLoc = localStorage.getItem('n');
@@ -337,7 +340,11 @@ function onDeviceReady() {
 	
 	/*device={name,cordova,platform,uuid,model,version}*/
 	//ios7
-	if ((device.platform == 'iOS') && (parseInt(device.version) >= 7)) {/*hay que dejarle 20px en el top de espaciado*/}
+	if ((device.platform == 'iOS') && (parseInt(device.version) >= 7)) {
+		/*hay que dejarle 20px en el top de espaciado*/
+		StatusBar.overlaysWebView(true);
+    	StatusBar.backgroundColorByHexString("#C0C0C0");
+	}
 	
 	user.device = {
 		'name':device.name,
