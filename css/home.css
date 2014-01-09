@@ -84,14 +84,14 @@ nav button .btn-icon {
 #btnSettings:active .label, #btnContinuar:active .label, #btnSend:active .label{color:#157dfb;}
 
 #topBar{
-	position:absolute;
+	position:fixed;
+	top:0px;
 	left:0px;
 	line-height:44px;
 	width:100%;
 	padding-top:0;
 	height:44px;
-	background-color: rgba(248, 248, 248, 0.9);
-	top:0px;
+	background-color: rgba(248, 248, 248, 1);
 	-webkit-user-select: none;
 	   -moz-user-select: none;
 	        user-select: none;
