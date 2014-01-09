@@ -190,7 +190,7 @@ function onDeviceReady() {
 					if (focusSelect) {okDatos = false; $(".select_").blur();}
 				}
 				
-				okDatos = true; txtError('');
+				//okDatos = true; txtError('');
 				
 				if (okDatos){
 					$("#page-right").stop().animate({
@@ -492,7 +492,6 @@ function envioDatosUser(){
 						}
 					}else{
 						resetPhotos();
-						$("#btnSend").show();
 						resetObject();
 					}
 				}, nombreApp, txt_btn_si+','+txt_btn_no );
@@ -631,23 +630,35 @@ function resetPhotos(){
 		user.img[cont] = '';
 		photosCamera[cont] = '';
 		$("#tamanoImg"+cont).html("").css({'width':'100%','height':'auto', 'margin':'0'});
-		$("#imgVista_"+cont).css({'background-image':'url(img/fondo_fotos.png)', 'background-color':'transparent'});
+		$("#imgVista_"+cont).css({'opacity':'0.2', 'background-color':'#000'});
 	}
 }
 
 function resetObject(){
+	//vamos al Inicio
 	$("#page-right").css("left","100%");
 	$("#objeto option[value='']").prop('selected', true);
 	$("#descripcion").val('');
+	$("#topBarText").html('');
+	$("#btnContinuar, #btnSend, #btnVolver_settings, #btnVolver, #btnVolver_home, #btnSettings").hide();
+	$("#btnContinuar, #btnSettings").show();
+	$("#topBarText").html(page_app_title);
+	page_home_actual = 1;
+	page_settings_open = 0;
+	clearError();
 }
 
 function resetAplication(){
 	resetPhotos();
 	fancyClose();
 	clearError();
-	$("#btnSend").show();
-	$("#btnSend_off").hide();
+	$("#topBarText").html('');
+	$("#btnContinuar, #btnSend, #btnVolver_settings, #btnVolver, #btnVolver_home, #btnSettings").hide();
+	$("#btnContinuar, #btnSettings").show();
+	$("#topBarText").html(page_app_title);
 	$("#page-right").css("left","100%");
+	page_home_actual = 1;
+	page_settings_open = 0;
 	//$("#nombre, #cp, #telefono, #email, #descripcion").val('');
 	$("#descripcion").val('');
 	$("#objeto option[value='']").prop('selected', true);
