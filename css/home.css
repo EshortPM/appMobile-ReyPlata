@@ -91,7 +91,7 @@ nav button .btn-icon {
 	width:100%;
 	padding-top:0;
 	height:44px;
-	background-color: rgba(248, 248, 248, 1);
+	background-color: rgba(248, 248, 248, 0.9);
 	-webkit-user-select: none;
 	   -moz-user-select: none;
 	        user-select: none;
