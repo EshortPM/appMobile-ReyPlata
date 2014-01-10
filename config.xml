@@ -3,7 +3,9 @@
     
     <name>ReyPlata</name>
     <description>Rey Plata App</description>
-    <author href="http://e-short.com" email="admin@shortcut-emarketing.com">eShort</author> 
+    <author href="http://e-short.com" email="admin@shortcut-emarketing.com">eShort</author>
+    
+    <gap:platform name="ios" />
     
     <content src="index.html" />
     <!-- Enable individual API permissions here. -->
